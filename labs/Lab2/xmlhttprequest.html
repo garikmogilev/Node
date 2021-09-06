@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XMLHttpRequest</title>
+</head>
+<body>
+<h1>XMLHttpRequest</h1>
+
+<div id="result"></div>
+
+</body>
+
+<script type="application/javascript">
+  let request = new XMLHttpRequest();
+  let result = document.getElementById("result");
+  if(request){
+    console.log("go");
+
+    request.open("get", "http://localhost:3000/api/name", true);
+    request.send();
+    request.onreadystatechange = () => {
+      console.log("onreadystatechange");
+      if(request.readyState === 4)
+      {
+        console.log("state === 4")
+        if(request.status === 200)
+        {
+          console.log("status === 200");
+          result.innerText = request.responseText;
+        }
+      }
+
+      request.onerror = (err) => {
+        console.log("error: " + err);
+      }
+
+      request.send();
+    }
+  }
+</script>
+
+</html>

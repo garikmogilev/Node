@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FETCH</title>
+</head>
+<body>
+<h1>FETCH</h1>
+
+<div id="result"></div>
+
+</body>
+
+<script type="application/javascript">
+
+let result = document.getElementById("result");
+
+ fetch("http://localhost:3000/api/name")
+    .then(response => response.text())
+    .then(data => {result.innerText = data});
+
+</script>
+
+</html>
