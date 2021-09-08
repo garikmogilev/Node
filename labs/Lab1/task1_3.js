@@ -18,7 +18,7 @@ http.createServer(function (request,response) {
         '<body>' +
         '<h1>Request</h1>' +
         '<h3>method: ' + request.method + '</h3>' +
-        '<h3>uri: ' + request.ur + '</h3>' +
+        '<h3>uri: ' + request.url + '</h3>' +
         '<h3>version: ' + request.httpVersion + '</h3><br>' +
         '<h2> -- HEADERS --</h2>' +
         getParametres(request) +
