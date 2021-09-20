@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorials</title>
+</head>
+<body>
+<div id="result"></div>
+<script type="application/javascript">
+    function run() {
+        let result = document.getElementById("result");
+
+        for (let k = 1; k <= 20; k++) {
+            fetch("http://localhost:3000/fact?k=" + k)
+                .then(response => response.text())
+                .then(data => {
+                    result.innerText += data;
+                    result.innerHTML += "<br>";
+                });
+        }
+    }
+    run();
+</script>
+
+</body>
+</html>
