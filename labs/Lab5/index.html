@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+    <style>
+
+        body{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .container{
+            width: 340px;
+            display: none;
+            background-color: #605ca4;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .container_field{
+            text-align: center;
+            height: auto;
+            font-weight: bold;
+            display: block;
+        }
+        .container_field_close{
+            padding: 3px;
+            display: block;
+            flex-wrap: wrap;
+        }
+        label.container_field_label{
+            color: white;
+            margin-top: 10px;
+            font-size: 20px;
+            height: 1em;
+            line-height: 3em;
+        }
+        input.container_field_input{
+            font-size: 30px;
+            margin: 10px;
+            float: right;
+            width: 240px;
+            height: 30px;
+        }
+        #INC{
+            width: 30px;
+            height: 30px;
+        }
+        #INFO{
+            float: right;
+            width: 300px;
+            height: 50px;
+            background-color: white;
+            margin: 25px;
+            color: green;
+            font-size: 12px;
+        }
+
+        .container_field_close{
+            width: 30px;
+            height: 30px;
+            margin: 0 10px 0 auto;
+            border-radius: 50%;
+
+        }
+
+        .container_nav{
+            display: inline-flex;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .container_nav_buttons{
+            height: 100%;
+            width: auto;
+            color: darkmagenta;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right:10px ;
+        }
+        .container_container_buttons{
+            height: 100%;
+            width: 100px;
+            color: darkmagenta;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left:15px ;
+        }
+        #container_nav_statistics{
+            width: 300px;
+            height: 24px;
+            background-color: #327cad;
+            margin-right: 10px;
+            border-radius: 5px;
+            color: #d4e6f6;
+            padding: 2px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        table.blueTable {
+            border: 1px solid #1C6EA4;
+            background-color: #EEEEEE;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table.blueTable td, table.blueTable th {
+            border: 1px solid #AAAAAA;
+            padding: 3px 2px;
+        }
+        table.blueTable tbody td {
+            font-size: 20px;
+        }
+        table.blueTable tr:nth-child(even) {
+            background: #D0E4F5;
+        }
+        table.blueTable thead {
+            background: #1C6EA4;
+            background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            border-bottom: 2px solid #444444;
+        }
+        table.blueTable thead th {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFFFFF;
+            border-left: 2px solid #D0E4F5;
+        }
+        table.blueTable thead th:first-child {
+            border-left: none;
+        }
+
+        table.blueTable tfoot {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background: #D0E4F5;
+            background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            border-top: 2px solid #444444;
+        }
+        table.blueTable tfoot td {
+            font-size: 20px;
+        }
+        table.blueTable tfoot .links {
+            text-align: right;
+        }
+        table.blueTable tfoot .links a {
+            display: inline-block;
+            background: #1C6EA4;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }    </style>
+</head>
+<body>
+
+<script>
+    window.onload = () =>{
+        GET();
+        GET_STATISTICS();
+    }
+
+    function GET(){
+        console.log('get');
+        let result = document.getElementById('bodyTable');
+
+        fetch('http://localhost:3000/api/db',{
+                method:'GET',
+                mode: 'no-cors',
+                headers: {'Content-Type':'application/json','Accept':'application/json'}
+            }
+        )
+            .then(response =>  {return response.json()})
+            .then(data => {
+                console.log('data', data);
+                result.innerHTML = '';
+                data.forEach(el => {result.innerHTML+= (`<tr><td>${el.id}</td> <td>${el.name}</td> <td>${el.bday}</td>`);});
+
+            });
+    }
+
+    function GET_ROW(){
+        console.log('get');
+        let ID = Number.parseInt(document.getElementById('ID').value);
+        const NOT_FOUND = -1;
+
+        if(Number.isInteger(ID)){
+            if(ID < 0) {
+                putInfo("The value must be greater than 0", false);
+                return;
+            }
+        }else {
+            putInfo("Only numbers", false);
+            return;
+        }
+
+        fetch(`http://localhost:3000/api/db?id=${ID}`,{
+                method:'GET',
+                mode: 'no-cors',
+                headers: {'Content-Type':'application/json','Accept':'application/json'}
+            }
+        )
+            .then(response =>  {return response.json()})
+            .then(data => {
+                console.log('data', data);
+                if(data.id === NOT_FOUND){
+                    console.log(data);
+                    putInfo("ID not found", false);
+                }else {
+
+                    getContainer("PUT");
+                    let date =new Date(data.bday);
+
+                    setTimeout(()=> {
+                        document.getElementById("ID").value = data.id;
+                        document.getElementById("ID").disabled = true;
+                        document.getElementById("NAME").value = data.name;
+                        document.getElementById("BDAY").value = date.toISOString().substring(0,10);
+                        },10);
+                    }
+            });
+
+    }
+    function GET_STATISTICS(){
+        console.log('get statistics');
+        let result = document.getElementById('container_nav_statistics');
+
+        fetch('http://localhost:3000/api/ss',{
+                method:'GET',
+                mode: 'no-cors',
+                headers: {'Content-Type':'application/json','Accept':'application/json'}
+            }
+        )
+            .then(response =>  {return response.json()})
+            .then(data => {
+                console.log('stat: ', data);
+
+                result.innerHTML= ("Request: " + data.request + "  Commits: " + data.commit);
+
+            });
+    }
+
+    function POST(){
+        console.log('post');
+
+        let NAME = document.getElementById('NAME');
+        let BDAY = document.getElementById('BDAY');
+
+        fetch('http://localhost:3000/api/db',{
+                method:'POST',
+                mode: 'no-cors',
+                headers: {'Content-Type':'application/json','Accept':'application/json'},
+                body: JSON.stringify({name: NAME.value, bday: BDAY.value}),
+            }
+        )
+            .then(response =>  {return response.json()})
+            .then(data => {
+                console.log('POST.data', data);
+                putInfo(JSON.stringify(data), true);
+                GET();
+            });
+    }
+
+    function PUT(){
+        console.log('put');
+
+        let ID   = document.getElementById('ID').value;
+        let NAME = document.getElementById('NAME').value;
+        let BDAY = document.getElementById('BDAY').value;
+
+        fetch('http://localhost:3000/api/db',{
+                method:'PUT',
+                mode: 'cors',
+                headers: {'Content-Type':'application/json','Accept':'application/json'},
+                body: JSON.stringify({id: ID, name: NAME, bday: BDAY})
+            }
+        )
+            .then(response =>  {return response.json()})
+            .then(data => {
+                console.log('POST.data', data);
+                putInfo(JSON.stringify(data), true);
+                GET();
+            });
+    }
+
+    function DELETE(){
+        console.log('delete');
+
+        let ID = document.getElementById('ID').value;
+
+        fetch(`http://localhost:3000/api/db?id=${ID}`,{
+                method:'DELETE'
+            }
+        )
+        .then(response =>  {return response.json()})
+        .then(data => {
+            console.log('DELETE.data', JSON.stringify(data));
+            if(data.id === -1){
+                putInfo("Not found", false);
+            }else {
+                putInfo(JSON.stringify(data), true);
+            }
+
+            GET();
+        });
+    }
+
+</script>
+<div class="container_nav">
+    <button class="container_nav_buttons" onclick="getContainer('POST')">ADD</button>
+    <button class="container_nav_buttons" onclick="getContainer('GETROW')">REPLACE</button>
+    <button class="container_nav_buttons" onclick="getContainer('DELETE')">DELETE</button>
+    <div id="container_nav_statistics" class="container_nav_info"></div>
+    <button class="container_nav_buttons" onclick="GET_STATISTICS()">GET STATISTICS</button>
+</div>
+<div class="container" id="container">
+
+</div>
+
+<table class="blueTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>BIRTHDAY</th>
+    </tr>
+    </thead>
+
+    <tbody id="bodyTable">
+
+    </tbody>
+</table>
+<script>
+    let container = document.getElementById("container");
+
+    let closeEdit = (action) => {
+        if(action){
+            container.style.display = "block";
+        }else {
+            container.style.display = "none";
+        }
+    }
+
+    let putInfo = (str, isError) =>{
+        let info = document.getElementById("INFO");
+        info.innerText = str;
+        if(!isError){
+            info.style.color = "red";
+        }else {
+            info.style.color = "green";
+        }
+    }
+
+    let getContainer = (param)=> {
+        let build = new Builder();
+
+        switch (param) {
+            case "POST": {
+                container.innerHTML = build.getPost();
+                closeEdit(true);
+                break;
+            }
+            case "PUT": {
+                container.innerHTML = build.getPut();
+                break;
+            }
+            case "DELETE": {
+                container.innerHTML = build.getDelete();
+                closeEdit(true);
+                break;
+            }
+            case "GETROW": {
+                container.innerHTML = build.getRow();
+                closeEdit(true);
+                break;
+            }
+        }
+    }
+
+    class Elements {
+        //❌
+
+        getButtonClose = () => {
+            return `<div class="container_field">
+                        <button class="container_field_close" onClick="closeEdit(false)">❌</button>
+                        </div>`;
+        };
+
+        getContainer(type, name) {
+            return `<div class="container_field">
+                    <label class="container_field_label" for="${name}">${name}</label>
+                    <input class="container_field_input" type="${type}" id="${name}" maxLength="20">
+                </div>`;
+        }
+
+        getButton(func, name, params) {
+            return `<button class="container_container_buttons" onclick="${func}(${params})">${name}</button>`;
+        }
+
+        getContainerInfo(){
+            return `<div class="container_field">
+                    <div id="INFO">info</div>
+                    </div>;`
+        }
+    }
+
+    class Builder {
+        elements = new Elements;
+
+        getPost() {
+            return this.elements.getButtonClose() +
+                this.elements.getContainer("text", "NAME") +
+                this.elements.getContainer("date", "BDAY") +
+                this.elements.getButton("POST", "POST", "") +
+                this.elements.getContainerInfo();
+        }
+
+        getRow() {
+            return this.elements.getButtonClose() +
+                this.elements.getContainer("number", "ID") +
+                this.elements.getButton("GET_ROW", "Get row", "PUT") +
+                this.elements.getContainerInfo();
+        }
+
+        getPut() {
+            return this.elements.getButtonClose() +
+                this.elements.getContainer("number", "ID") +
+                this.elements.getContainer("text", "NAME") +
+                this.elements.getContainer("date", "BDAY") +
+                this.elements.getButton("PUT", "PUT", "") +
+                this.elements.getButton("getContainer", "NEW", "'GETROW'") +
+                this.elements.getContainerInfo();
+        }
+
+
+        getDelete() {
+            return this.elements.getButtonClose() +
+                this.elements.getContainer("number", "ID") +
+                this.elements.getButton("DELETE", "Delete", "") +
+                this.elements.getContainerInfo();
+        }
+    }
+
+</script>
+</body>
+</html>
+
+

@@ -14,7 +14,6 @@ http.createServer(function (request, response){
                 Console.error(err.code + err.message);
                 response.end(err.code + err.message);
             } else {
-                time = Date.now();
                 let file = fs.readFileSync(page);
                 response.end(file);
             }
@@ -28,6 +27,7 @@ http.createServer(function (request, response){
                     response.writeHead(200, {'Content-Type': 'text/html; charset = utf-8'});
                     response.end("The program cannot calculate a factorial greater than 170");
                 }else {
+                    time = Date.now();
                     response.writeHead(200, {'Content-Type': 'application/json; charset = utf-8'});
                     process.nextTick(() =>getFactorial(k, response));
                 }
