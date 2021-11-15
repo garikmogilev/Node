@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <films>
+        <counter>Film 1</counter>
+        <Name>The Circus</Name>
+    </films>
+    <films>
+        <counter>Film 2</counter>
+        <Name>Show People</Name>
+    </films>
+    <films>
+        <counter>Film 3</counter>
+        <Name>The Gold Rush</Name>
+    </films>
+</root>

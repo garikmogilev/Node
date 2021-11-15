@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node mailer</title>
+    <style>
+        body{
+            width: 300px;
+            margin: auto;
+            background-color: #DAE5E7;
+        }
+        h1{
+            margin: 0;
+            color: #FFF;
+            padding: 30px;
+        }
+        header{
+            background-color: #327cad;
+            margin: 0;
+        }
+        .container_form{
+            width: 300px;
+            margin: auto;
+            background-color: #327cad;
+        }
+
+        .container_form_input{
+            width: 292px;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .container_form_button{
+            font-size: 20px;
+            width: 300px;
+            border-radius: 0;
+        }
+        .container_form_message{
+            height: 300px;
+            resize: vertical;
+            font-family: Arial,sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>NODE MAILER</h1>
+    </header>
+
+    <form action="http://localhost:3000/" method="get" class="container_form">
+
+        <label class="container_form_label">
+            <input name="email" type="email" id="email" class="container_form_input" value="To"
+                   onblur="if(this.value === ''){this.value='To';}" onfocus="if(this.value === 'To'){this.value='';}">
+
+        </label>
+<br>
+        <label class="container_form_label">
+            <input name="subject" type="text" id="subject" class="container_form_input" value="Subject"
+                   onblur="if(this.value === ''){this.value='Subject';}" onfocus="if(this.value === 'Subject'){this.value='';}">
+
+        </label>
+<br>
+
+        <label for="message">
+        <textarea id="message" class="container_form_input container_form_message" tabindex="Message"
+            onblur="if(this.value === ''){this.value='Message';}" onfocus="if(this.value === 'Message'){this.value='';}"></textarea>
+        </label>
+        <br>
+
+        <input class="container_form_button" type="button" value="Send" onclick="sender()">
+
+    </form>
+</body>
+</html>
+
+<script>
+    let sender = () =>
+    {
+        let email = document.getElementById('email').value;
+        let subject = document.getElementById('subject').value;
+        let message = document.getElementById('message').value;
+
+        fetch('http://localhost:3000/send?' +
+            'email='  + email   + '&' +
+            'subject=' + subject + '&' +
+            'message=' + message,
+            {
+                method:'GET',
+            }
+        )
+            .then(response =>  console.log(response.text()))
+    }
+
+
+</script>

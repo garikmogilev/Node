@@ -57,7 +57,7 @@ db.on('DELETE', async (request, response) =>
     }
 });
 
-http.createServer(async function (request, response) {
+let server = http.createServer(async function (request, response) {
     if(url.parse(request.url).pathname === "/" ){
         response.writeHead(200, {'Content-Type': 'text/html; charset = utf-8'});
 

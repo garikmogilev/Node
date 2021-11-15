@@ -1,0 +1,17 @@
+{
+  "name": "m0603_skvortsoff",
+  "version": "1.1.2",
+  "description": "sender in use email, lab BSTU",
+  "main": "m0603_skvortsoff",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Skvortsoff",
+  "license": "ISC",
+  "dependencies": {
+    "user": "0.0.0"
+  },
+  "devDependencies": {
+    "fast-xml-parser": "^3.20.3"
+  }
+}

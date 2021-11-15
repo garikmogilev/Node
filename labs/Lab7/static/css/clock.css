@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+#circle{
+	
+	position: absolute;
+	margin-left: 250px;
+	margin-top: 100px;
+	width: 300px;
+	z-index: 3;
+	
+}
+
+#minutes{
+	
+	position: absolute;
+	transform-origin:50% 134px;
+	width: 42px;
+	margin-left: 381px;
+	margin-top: 119px;
+	z-index: 2;
+	
+}
+
+#hours{
+	
+	position: absolute;
+	transform-origin:50% 113px;
+	width: 42px;
+	margin-left: 388px;
+	margin-top: 145px;
+	z-index: 2;
+	
+}
+
+#seconds{
+	position: absolute;
+	transform-origin:50% 163px;
+	width: 46px;
+	margin-left: 377px;
+	margin-top: 100px;
+	z-index: 1;
+	
+}
+#outputClock{
+	position: absolute;
+	margin-top: 700px;
+	left: 0;
+	right: 0;
+}

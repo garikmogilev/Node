@@ -4,7 +4,7 @@ const data = require("../mudules/module01");
 let db = new data.DB();
 
 
-class Manager{
+class Manager {
     requests = 0;
     commits = 0;
     dateRun;

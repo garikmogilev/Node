@@ -1,0 +1,134 @@
+        * {
+            margin: 0 auto;
+            width: 1000px;
+        }
+        
+        body {
+            background-image: url(https://www.google.com/search?q=%D0%BB%D0%B5%D0%BD%D1%82%D0%B0+%D0%BA%D0%B8%D0%BD%D0%BE+png&sxsrf=ALeKk002LhZrHfc1yryUznHcnqs1nOB0wA:1590183545651&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjws_aqt8jpAhUR2qQKHRPFDvQQ_AUoAXoECAsQAw&biw=1600&bih=789#imgrc=Ct1QpAYMSG0VGM);
+            width: 1000px;
+            height: 1200px;
+            background-color: #1E1E1E;
+        }
+        
+        header {
+            width: 1000px;
+            height: 120px;
+            top: 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: white;
+            color: black;
+            position: absolute;
+            margin: 0 auto;
+            font-size: 72px;
+            font-style: italic;
+            border-bottom: 2px solid red;
+            border-top: 2px solid red;
+        }
+        
+        span {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+        }
+        
+        audio {
+            padding: 25px;
+            padding-bottom: 0;
+            display: block;
+            width: 350px;
+        }
+        
+        video {
+            width: 500px;
+            margin: 50px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 0;
+            padding: 10px;
+        }
+        
+        mark {
+            color: red;
+            background-color: white;
+        }
+        
+        .logo {
+            height: 120px;
+            top: 0px;
+            width: auto;
+            position: absolute;
+            right: 20px;
+            padding: 5px;
+        }
+        
+        .music {
+            width: 200px;
+            position: absolute;
+            left: 0;
+        }
+        
+        .video {
+            width: 600px;
+            position: absolute;
+            right: 0;
+        }
+        
+        .media {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: white;
+            color: black;
+            width: 1000px;
+            height: 700px;
+            margin: 0 auto;
+            font-size: 72px;
+            position: absolute;
+            top: 160px;
+            border-bottom: 2px solid red;
+            border-top: 2px solid red;
+            font-style: italic;
+        }
+        
+        .wiki {
+            padding: 5px;
+        }
+
+        img {
+            position: absolute;
+            width: 150px;
+            padding: 20px;
+        }
+        
+        #display-coords {
+            position: relative;
+            font-size: 32px;
+            width: 300px;
+            height: 250px;
+            padding: 20px;
+            left: 20px;
+        }
+        #result{
+            top: 600px;
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+        }
+        #download_docx{
+            width: 40px;
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+        }
+        
+        footer {
+            position: absolute;
+            top: 300px;
+            font-size: 24px;
+            width: 1000px;
+            height: 54px;
+            background-color: white;
+            border-bottom: 2px solid red;
+            border-top: 2px solid red;
+        }
