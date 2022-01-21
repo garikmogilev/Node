@@ -3,7 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 const port = 9000;
-let downloader = require('./modules/m07-01')('static');
+let responder = require('./modules/m07-01')('static');
 
 const Error405 = (response) => {
     response.writeHead(405);
@@ -14,7 +14,7 @@ http.createServer(function (request, response) {
     console.log(`${request.method} ${request.url}`);
 
     if(request.method === 'GET'){
-        downloader.sender(response, request.url);
+        responder.sender(response, request.url);
     }else {
         Error405(response);
     }

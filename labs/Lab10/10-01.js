@@ -33,7 +33,7 @@ httpServer.listen(httpPort, ()=>{console.log("http://localhost:" + httpPort)});
 
 /*************** SOCKET ***************/
 
-const socketserver = new WebSocket.Server({port: socketPort, host: "localhost", path: "/wsserver"}).on("connection", (ws) => {
+new WebSocket.Server({port: socketPort, host: "localhost", path: "/wsserver"}).on("connection", (ws) => {
     let countReceive = 1, countSent = 1;
 
     ws.on("message", message => {

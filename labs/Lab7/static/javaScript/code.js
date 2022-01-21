@@ -9,8 +9,8 @@ const fetchXml = async () => {
 
     const parser = new DOMParser();
     const xml = parser.parseFromString(data, "text/xml");
-    const students = Array.from(xml.documentElement.children);
-    students.forEach(student => document.getElementById("xml").append(student));
+    const films = Array.from(xml.documentElement.children);
+    films.forEach(student => document.getElementById("xml").append(student));
 }
 
 const fetchJson = async () => {

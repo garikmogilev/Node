@@ -9,7 +9,7 @@ let db = new data.DB();
 
 // TODO listeners of events
 
-db.on('GET', async  (request, response) =>
+db.on('GET',  (request, response) =>
 {
         if(typeof url.parse(request.url, true).query.id !== "undefined") {
             let id = Number.parseInt(url.parse(request.url, true).query.id);
@@ -25,17 +25,17 @@ db.on('GET', async  (request, response) =>
 
 });
 
-db.on('POST', async (request, response) =>
+db.on('POST',  (request, response) =>
 {
     console.log('DB.POST');
     request.on('data', data => {
         db.insert(JSON.parse(data));
-        response.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'})
+        response.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
         response.end(data);
     });
 });
 
-db.on('PUT', async (request, response) =>
+db.on('PUT',  (request, response) =>
 {
     console.log('DB.PUT');
     request.on('data', data => {
@@ -45,7 +45,7 @@ db.on('PUT', async (request, response) =>
     });
 });
 
-db.on('DELETE', async (request, response) =>
+db.on('DELETE',  (request, response) =>
 {
     console.log('DB.DELETE');
     if(typeof url.parse(request.url, true).query.id !== "undefined") {
@@ -57,7 +57,7 @@ db.on('DELETE', async (request, response) =>
     }
 });
 
-let server = http.createServer(async function (request, response) {
+let server = http.createServer(  (request, response) => {
     if(url.parse(request.url).pathname === "/" ){
         response.writeHead(200, {'Content-Type': 'text/html; charset = utf-8'});
 
@@ -75,4 +75,3 @@ let server = http.createServer(async function (request, response) {
         db.emit(request.method, request, response);
     }
 }).listen(3000);
-

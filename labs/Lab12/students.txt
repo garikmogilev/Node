@@ -1,0 +1,1 @@
+[{"id":4,"name":"Vasgen","bday":"2000-02-06","speciality":"POIT"},{"id":2,"name":"Vasileva","bday":"1998-05-09","speciality":"POIT"},{"id":1,"name":"Tsuranov","bday":"1999-02-06","speciality":"POIT"},{"id":7,"name":"Tsuranov","bday":"1999-02-06","speciality":"POIT"}]

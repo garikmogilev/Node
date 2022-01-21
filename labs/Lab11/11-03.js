@@ -21,6 +21,6 @@ socketserver.on("connection", (ws) => {
     setInterval(() => {
         console.log(`11-03-server: ${countSentMessage} number clients: ${socketserver.clients.size}`);
         ws.ping(`11-03-server: ${countSentMessage++}`);
-    }, 5000);
+    }, 15000);
 
 });

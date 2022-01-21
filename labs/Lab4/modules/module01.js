@@ -35,6 +35,7 @@ function DB(){
 
         db_data.push(obj);
     };
+    
     this.update = (obj) =>{
         let size = db_data.length;
         let id = Number.parseInt(obj.id);

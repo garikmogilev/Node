@@ -60,7 +60,7 @@ db.on('DELETE', (request, response) =>
     }
 });
 
-db.on('COMMIT', async (request, response) =>
+db.on('COMMIT', (request, response) =>
 {
     console.log('DB.COMMIT');
     db.commit(manager);
