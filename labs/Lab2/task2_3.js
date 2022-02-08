@@ -17,4 +17,19 @@ http.createServer(function (request, response){
         Console.log("only: localhost:3000/api/name");
     }
 
+    if(request.method === "GET")
+        switch (request.url) {
+            case "/all": //endpoint
+                //
+                break;
+            case "one":  //endpoint
+                //
+                break;
+            case "get-group": //endpoint
+                //
+                break;
+
+        }
+
 }).listen(3000);
+

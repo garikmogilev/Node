@@ -15,6 +15,7 @@
     "esm": "^3.2.25",
     "fast-xml-parser": "^3.20.3",
     "graphql": "^15.7.2",
+    "ioredis": "^4.28.5",
     "m0603_skvortsoff": "^1.1.2",
     "mongodb": "^4.3.0",
     "msnodesqlv8": "^2.4.3",
@@ -22,6 +23,7 @@
     "multiparty": "^4.2.2",
     "nodemailer": "^6.6.5",
     "process": "^0.11.10",
+    "redis": "^4.0.3",
     "rpc-websockets": "^7.4.16",
     "sendmail": "^1.6.1",
     "ws": "^8.2.3"

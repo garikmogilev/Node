@@ -1,28 +1,11 @@
-const fs = require("fs");
-const axios = require("axios");
+const http = require("http");
 
-let fsOperations = async () => {
-    //let data = await fs.readFile("./file.json");
-    let rs = fs.createReadStream("./file.json");
-    rs.on("data", (data) => {
-        process.stdout.write(data);
+http.createServer(((req, res) => {
+    console.log("req");
+    req.on("data", chunk => {
+        console.log(chunk.toString());
+        res.writeHead(200, {"Content-type":"text/plain"})
+
     })
-}
-
-fsOperations().then(() => console.log("Done"));
-
-let req = async () => {
-    let response = await axios(
-        {
-            url:"http://localhost:3000/api/get",
-            method:"get",
-            headers:{
-                "Content-type":"text/plain"
-            },
-            data:{x:1, y:2}
-        }
-    )
-    console.log(response.data);
-
-}
-req();
+    req.on("end", () => res.end("1234"))
+})).listen(1234, "localhost");

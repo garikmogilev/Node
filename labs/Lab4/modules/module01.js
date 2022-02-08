@@ -59,4 +59,5 @@ function DB(){
 }
 
 util.inherits(DB, ee.EventEmitter);
+
 exports.DB = DB;

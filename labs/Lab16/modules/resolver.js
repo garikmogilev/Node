@@ -13,6 +13,7 @@ async function getRecordsByField(table, field, context)
     }
 
 }
+
 async function mutateRecord(table, idField, fields, context)
 {
     let records = {};

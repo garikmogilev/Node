@@ -13,7 +13,7 @@ class responder {
         this.folder = param;
     }
 
-    sender(response, url){
+    sender(response, url) {
         if(url === "" || url === "/")
             this.getIndex(response);
 
@@ -65,7 +65,8 @@ class responder {
                                     "Content-type":"audio/mpeg",
                                     'Content-Length': fs.statSync(file).size
                                 })
-                                fs.createReadStream(file).pipe(response);
+                                response.end(fs.readFileSync(file));
+                                    //fs.createReadStream(file).pipe(response);
                     }
                 }))
                 break;
@@ -79,7 +80,7 @@ class responder {
                 break;
             case "img":
                 fs.access(file, fs.constants.F_OK,(err => {
-                    fs.readFile(file, ((error, data) => {
+                    fs.readFile(file, (error, data) => {
                         if(error)
                             E404(response);
                         else
@@ -87,7 +88,7 @@ class responder {
                             response.writeHead(200,{"Content-type":"image/jpeg"});
                             response.end(data);
                         }
-                    }))
+                    })
                 }))
                 break;
             case "json":
@@ -126,11 +127,9 @@ class responder {
             if (err)
                 E404(response);
             else {
-                fs.readFile(index, ((err, data) => {
-                        response.writeHead(200, {"Content-type": "text/html"});
-                        response.end(data);
-                    })
-                )
+                response.writeHead(200, {"Content-type": "text/html"});
+                fs.createReadStream(index).pipe(response);
+
             }
         }))
     }

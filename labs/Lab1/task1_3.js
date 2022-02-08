@@ -10,8 +10,9 @@ http.createServer(function (request,response) {
     });
 
     response.writeHead(200, {'Content-Type':'text/html; charset = utf-8'});
-    request.on("end", () => response.end(
-        '<doctype html> <html>' +
+    request.on("end", () =>
+        response.end(
+        '<doctype html> ' +
         '<head>' +
         '<title>Task3</title>' +
         '</head>' +

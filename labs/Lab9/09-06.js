@@ -5,10 +5,11 @@ let data = "";
 let bound = 'smw60-smw60-smw60';
 
 let body =`--${bound}\r\n`  +
-'Content-Disposition:form-data; name="file"; Filename="MyFile.txt"\r\n' +
-'Content-Type:text/plain\r\n\r\n' +
-fs.readFileSync('./static/MyFile.txt') +
-`\r\n--${bound}--\r\n`;
+    'Content-Disposition:form-data; ' +
+    'name="file"; Filename="MyFile.txt"\r\n' +
+    'Content-Type:text/plain\r\n\r\n' +
+    fs.readFileSync('./static/MyFile.txt') +
+    `\r\n--${bound}--\r\n`;
 
 let options = {
     host: "localhost",

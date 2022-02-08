@@ -3,7 +3,6 @@ const NetSocket = require("net");
 const PORT = 2000;
 const HOST = "localhost";
 
-
 let buffer = Buffer.allocUnsafe(4);
 let connections = new Map();
 
@@ -16,7 +15,6 @@ const server = new NetSocket.createServer((socket) => {
 
     socket.id = (new Date()).toISOString();
     connections.set(socket.id, {sum: 0});
-
     server.getConnections((e, c) => {
         if(!e){
             console.log(label("connected", PORT, socket) + c);
@@ -28,7 +26,7 @@ const server = new NetSocket.createServer((socket) => {
 
     socket.on("data", (data) => {
         connections.get(socket.id).sum += data.readInt32LE();
-        console.log(label("data", PORT, socket) + connections.get(socket.id).sum);
+        console.log(label("data", PORT, socket) + " " +connections.get(socket.id).sum);
     });
 
     setInterval(() => {
@@ -44,8 +42,6 @@ const server = new NetSocket.createServer((socket) => {
     });
 
 }).listen(PORT, HOST);
-
-
 
 server.on("listening", () => {
     console.log(`port: ${PORT} host: ${HOST}`);

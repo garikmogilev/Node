@@ -3,7 +3,6 @@ const url = require("url");
 const fs = require("fs");
 const Console = require("console");
 const queryString = require("querystring");
-const xml2js = require('xml2js');
 const multiparty = require("multiparty");
 
 const server = http.createServer().listen(3000);
@@ -225,6 +224,7 @@ let procPost = (request, response) => {
                 let concat = "";
                 let sum = 0;
 
+                const xml2js = require('xml2js');
                 xml2js.parseString(xml, function (err, result) {
                     console.dir(result);
 
@@ -236,7 +236,7 @@ let procPost = (request, response) => {
                         sum += Number.parseInt(result.request.x[i].$.value);
                     }
 
-                    let builder = new xml2js.Builder();
+                    const builder = new xml2js.Builder();
                     let xml = builder.buildObject(
                         {
                             response: {
@@ -262,11 +262,11 @@ let procPost = (request, response) => {
             let form = new multiparty.Form({uploadDir: "./static"});
 
             form.on("field", (name, value) => {
-                //Console.log(value);
+                console.log(value);
             });
 
             form.on("file", (name, file) => {
-                Console.log(file.originalFilename);
+                console.log(file.originalFilename);
             });
 
             form.on("error", (err) => {
