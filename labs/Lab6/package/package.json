@@ -9,6 +9,7 @@
   "author": "Skvortsoff",
   "license": "ISC",
   "dependencies": {
+    "passport": "^0.5.2",
     "user": "0.0.0"
   },
   "devDependencies": {

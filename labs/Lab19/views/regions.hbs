@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+<body>
+
+{{>nav}}
+
+<div class="container">
+    <div class="forms">
+        <form action="/region/add" method="post">
+            <fieldset>
+                <legend>Добавить регион</legend>
+                <label>Страна:
+                    <input type="text" name="name">
+                </label>
+                <label>Код страны:
+                    <label>Страна:
+                        <input type="text" maxlength="3" name="code">
+                    </label>
+                </label>
+                <label>
+                    <input type="submit" value="Добавить">
+                </label>
+            </fieldset>
+        </form>
+
+        <form action="/region/upd" method="post">
+            <fieldset>
+                <legend>Обновить название</legend>
+                <label>Старое значение :
+                    <select name="id">
+                        {{#each regions}}
+                            <option value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </label>
+                <label>Новое значение:
+                    <input type="text" name="name">
+                </label>
+                <label>
+                    <input type="submit" value="Обновить">
+                </label>
+            </fieldset>
+        </form>
+
+        <form action="/region/del" method="post">
+            <fieldset>
+                <legend>Удалить страну из спика (будут удалены все вакансии для этой страны)</legend>
+                <label>Страна:
+                    <select name="id">
+                        {{#each regions}}
+                            <option value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </label>
+                <label>
+                    <input type="submit" value="Удалить">
+                </label>
+            </fieldset>
+        </form>
+    </div>
+
+    <table class="cities__table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Страна</th>
+            <th>Код страны</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each regions}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.code}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

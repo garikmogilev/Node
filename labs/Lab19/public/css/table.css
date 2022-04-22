@@ -1,0 +1,28 @@
+table.cities__table {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+    color: #ffffff;
+}
+
+table.cities__table th{
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 3px;
+    color: #d4e6f6;
+}
+table.cities__table td{
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 3px;
+    color: #1E1E1E;
+}
+
+table.cities__table thead {
+    background-color: #305496;
+}

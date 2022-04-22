@@ -1,0 +1,28 @@
+/**** HEADER ****/
+
+header {
+    display: grid;
+    margin: 0 auto;
+    width: 800px;
+    align-items: center;
+    left: 0;
+    right: 0;
+}
+
+
+/**** NAVIGATION ****/
+
+.header__nav{
+    display: grid;
+    grid-auto-rows: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+.header__nav>a{
+    display: grid;
+    justify-content: center;
+}
+
+.nav__button:hover{
+    color: purple;
+}

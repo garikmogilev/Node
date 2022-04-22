@@ -1,4 +1,4 @@
-const managerDB = require("../Lab15/database/ManagerDB");
+const managerDB = require("./database/managerDB");
 const http = require("http");
 const url = require("url");
 const index = require("async");

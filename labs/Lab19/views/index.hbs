@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+<body>
+{{>nav}}
+<div class="container">
+    <div id="forms">
+        <form action="/job/add" method="post">
+            <fieldset>
+                <legend>Новая вакансия</legend>
+            <label>Вакансия:
+                <input type="text" name="job">
+            </label>
+            <label>Специализация:
+                <select name="specialization">
+                    {{#each specializations}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>Зарплата:
+                <input type="number" name="salary">
+            </label>
+            <br>
+            <label>Представитель:
+                <select name="user">
+                    {{#each users}}
+                        <option value="{{this.id}}">{{this.login}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>Город:
+                <select name="city">
+                    {{#each cities}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>Описание:
+                <input type="text" name="description">
+            </label>
+            <label>
+                <input type="submit" value="Добавить">
+            </label>
+            </fieldset>
+        </form>
+
+        <form action="/job/upd" method="post">
+            <fieldset>
+                <legend>Обновление описания</legend>
+            <label> Вакансия:
+                <select name="id">
+                    {{#each result}}
+                        <option value="{{this.id}}">{{this.job}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>Новое описание:
+                <input type="text" name="description">
+            </label>
+            <label>
+                <input type="submit" value="Обновить">
+            </label>
+            </fieldset>
+        </form>
+
+        <form action="/job/del" method="post">
+            <fieldset>
+                <legend>Удалить вакансию</legend>
+            <label>Вакансия:
+                <select name="id">
+                    {{#each result}}
+                        <option value="{{this.id}}">{{this.job}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>
+                <input type="submit" value="Удалить">
+            </label>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <table class="cities__table">
+        <thead>
+        <tr>
+            <th>Вакансия</th>
+            <th>Специализация</th>
+            <th>Дата публикации</th>
+            <th>Зарплата</th>
+            <th>Представитель</th>
+            <th>Город</th>
+            <th>Описание</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each result}}
+            <tr>
+                <td>{{this.job}}</td>
+                <td>{{this.specialization}}</td>
+                <td>{{this.date_published}}</td>
+                <td>{{this.salary}}</td>
+                <td>{{this.login}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.description}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

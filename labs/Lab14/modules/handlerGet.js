@@ -6,7 +6,7 @@ const path = require("path");
 let handlerGet = (params) => {
     switch(params.request.url) {
         case "/api/faculties":
-            params.pool.then(() => {
+
                 const req = "select * from faculty;";
                 params.connectionPool.request().query(req, ((err, result) => {
                     if(err)

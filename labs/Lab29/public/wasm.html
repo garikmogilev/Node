@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab25_1</title>
+    <style>
+        body{
+            font-family: "Droid Sans Mono", monospace;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<h3>WASM</h3>
+<div>
+    sum <br>
+    <label>x
+        <input type="number" id="sum_x" value="0">
+    </label>
+    <br>
+    <label>y
+        <input type="number" id="sum_y" value="0">
+    </label>
+    <br>
+    result =
+    <span id="sum_result">
+        0
+    </span>
+    <input type="button" onclick="sum()" value="sum">
+</div>
+<div>
+    <br>
+    sub
+    <br>
+    <label>x
+        <input type="number" id="sub_x" value="0">
+    </label>
+    <br>
+    <label>y
+        <input type="number" id="sub_y" value="0">
+    </label>
+    <br>
+    result =
+    <span id="sub_result">
+        0
+    </span>
+    <input type="button" onclick="sub()" value="sub">
+</div>
+<div>
+    <br>
+    mul
+    <br>
+    <label>x
+        <input type="number" id="mul_x" value="0">
+    </label>
+    <br>
+    <label>y
+        <input type="number" id="mul_y" value="0">
+    </label>
+    <br>
+    result =
+    <span id="mul_result">
+        0
+    </span>
+    <input type="button" onclick="mul()" value="sum">
+</div>
+</body>
+</html>
+<script>
+    let wasm = null;
+    (async () => {
+        const wasmCode = await fetch("http://localhost:3000/p.wasm")
+        wasm = await WebAssembly.instantiateStreaming(wasmCode);
+    })();
+
+    const sum = () => {
+        sum_result.innerText = wasm.instance.exports.sum(sum_x.value, sum_y.value);
+    }
+    const sub = () => {
+        sub_result.innerText = wasm.instance.exports.sub(sub_x.value, sub_y.value);
+    }
+    const mul = () => {
+        mul_result.innerText = wasm.instance.exports.mul(mul_x.value, mul_y.value);}
+
+
+</script>

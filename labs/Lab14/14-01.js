@@ -1,6 +1,6 @@
 const sql = require("mssql/msnodesqlv8");
 const http = require("http");
-const dispatcher = require("../Lab14/modules/dispatcher");
+const dispatcher = require("./modules/dispatcher");
 
 const connectionPool = new sql.ConnectionPool({
     database: "UNIVERSITY",

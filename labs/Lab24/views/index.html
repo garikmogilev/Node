@@ -1,0 +1,88 @@
+<html lang="ru">
+<head>
+    <title>Страница авторизации</title>
+    <link href="css/signin.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="authorization">
+
+    <form name="auth" action="login" method="POST">
+        <p><span class="black">LOG IN</span>
+        <hr/>
+
+        <p class="forms">
+            <label for="login">Login &#x1F479;</label>
+            <label>
+                <input id="login" type="text" name="username" placeholder="Login or email" required onkeyup="checkLogin(this.value)">
+            </label>
+        </p>
+
+        <p class="forms">
+            <label for="password">Password &#x1F511;</label>
+            <input id="password" type="password" name="password" placeholder="Password" required class="showPassword" onkeyup="checkPassword(this.value)">
+        </p>
+
+        <div id="serving">
+            <p id="errorInput"></p>
+            <p id="error"></p>
+        </div>
+        <div class="buttons">
+            <input class="buttons" id="submit" type="submit" name="logging"  value="LOG IN">LOG IN
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
+
+
+<script>
+
+    let login = false;
+    let password = false;
+
+    function showPassword()
+    {
+        let show = document.getElementById("showPassword");
+        show.onchange = function() {
+            if(this.checked) {
+                document.getElementById("password").setAttribute("type", "text");
+            }else {
+                document.getElementById("password").setAttribute("type", "password");
+            }
+        }
+    }
+
+    function checkLogin(str)
+    {
+        if(str.length < 4)
+        {
+            document.getElementById("errorInput").innerHTML = "Login must be more than 4 characters";
+            document.getElementsByName("username")[0].style.borderColor = "red";
+            login = false;
+        }
+        else
+        {
+            document.getElementById("errorInput").innerHTML = "";
+            document.getElementsByName("username")[0].style.borderColor = "green";
+            login = true;
+        }
+    }
+
+    function checkPassword(str)
+    {
+        if(str.length < 8)
+        {
+            document.getElementById("errorInput").innerHTML = "Password must be more than 8 characters";
+            document.getElementsByName("password")[0].style.borderColor = "red";
+            password = false;
+        }
+        else
+        {
+            document.getElementById("errorInput").innerHTML = "";
+            document.getElementsByName("password")[0].style.borderColor = "green";
+            password = true;
+        }
+    }
+
+</script>

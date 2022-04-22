@@ -1,6 +1,6 @@
 let util = require('util');
 const SECOND  = 1000;
-const data = require("../mudules/module01");
+const data = require("./module01");
 let db = new data.DB();
 
 

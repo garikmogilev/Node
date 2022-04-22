@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+<body>
+
+{{>nav}}
+
+<div class="container">
+    <div class="forms">
+        <form action="/city/add" method="post">
+            <fieldset>
+                <legend>Добавить город</legend>
+            <label>Город:
+                <input type="text" name="city">
+            </label>
+            <label>Страна:
+                <select name="region">
+                    {{#each regions}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>
+                <input type="submit" value="Добавить">
+            </label>
+            </fieldset>
+        </form>
+
+        <form action="/city/upd" method="post">
+            <fieldset>
+                <legend>Обновить название</legend>
+            <label>Старое значение (город):
+                <select name="id">
+                    {{#each cities}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>Новое значение:
+                <input type="text" name="name">
+            </label>
+            <label>
+                <input type="submit" value="Обновить">
+            </label>
+            </fieldset>
+        </form>
+
+        <form action="/city/del" method="post">
+            <fieldset>
+                <legend>Удалить город из спика (будут удалены все вакансии для этого города)</legend>
+            <label>Город:
+                <select name="id">
+                    {{#each cities}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>
+                <input type="submit" value="Удалить">
+            </label>
+            </fieldset>
+        </form>
+    </div>
+
+    <table class="cities__table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Город</th>
+            <th>Страна</th>
+            <th>Код страны</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each cities_regions}}
+            <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.Region.name}}</td>
+                    <td>{{this.Region.code}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

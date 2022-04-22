@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>ReferenceError: rs2 is not defined<br> &nbsp; &nbsp;at D:\GitHub\Node\labs\NodeJS\Lab26\26-02s.js:8:5<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\GitHub\Node\labs\node_modules\express\lib\router\layer.js:95:5)<br> &nbsp; &nbsp;at next (D:\GitHub\Node\labs\node_modules\express\lib\router\route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (D:\GitHub\Node\labs\node_modules\express\lib\router\route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\GitHub\Node\labs\node_modules\express\lib\router\layer.js:95:5)<br> &nbsp; &nbsp;at D:\GitHub\Node\labs\node_modules\express\lib\router\index.js:281:22<br> &nbsp; &nbsp;at Function.process_params (D:\GitHub\Node\labs\node_modules\express\lib\router\index.js:341:12)<br> &nbsp; &nbsp;at next (D:\GitHub\Node\labs\node_modules\express\lib\router\index.js:275:10)<br> &nbsp; &nbsp;at expressInit (D:\GitHub\Node\labs\node_modules\express\lib\middleware\init.js:40:5)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\GitHub\Node\labs\node_modules\express\lib\router\layer.js:95:5)</pre>
+</body>
+</html>

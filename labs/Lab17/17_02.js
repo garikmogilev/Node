@@ -16,7 +16,7 @@ client.on('connect', async () => {
     console.log('Test get: ');
     console.time()
     for (let i = 0; i < 10000; i++) {
-        console.log(await client.get(i));
+        //console.log(await client.get(i));
         await client.get(i);
     }
     console.timeEnd()

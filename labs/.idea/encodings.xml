@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Crypt/Lab4/Lab4-2.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Crypt/Lab4/Lab4.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Crypt/Lab4/result/decodePorts.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/Crypt/Lab5/files/ru.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Crypt/Lab6/runEnigma.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Lab14/14.sql" charset="windows-1251" />
-    <file url="file://G:/My Drive/Films (temp)/Moskva_slezam_ne_verit_2_1979_Rus/Moskva slezam ne verit (1980) CD1.srt" charset="windows-1251" />
-    <file url="file://G:/My Drive/Films (temp)/Moskva_slezam_ne_verit_2_1979_Rus/Moskva slezam ne verit (1980) CD2.srt" charset="windows-1251" />
-    <file url="file://G:/My Drive/Films (temp)/Moskva_slezam_ne_verit_2_1979_Rus/Moskva slezam ne verit 01.srt" charset="windows-1251" />
-    <file url="file://G:/My Drive/Films (temp)/Moskva_slezam_ne_verit_2_1979_Rus/Moskva slezam ne verit 02.srt" charset="windows-1251" />
-    <file url="file://G:/My Drive/Films (temp)/Moskva_slezam_ne_verit_2_1979_Rus/Moskva slezam ne verit.srt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/Lab18/modules/handlerGet.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
